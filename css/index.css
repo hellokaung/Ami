@@ -1,0 +1,79 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.tab-container {
+  padding: 0 20px;
+  margin-top: 20px;
+}
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  background-color: #6b7280be;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 2px solid gray;
+}
+.tab {
+  flex: 1;
+  padding: 15px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transition: 500ms ease-in;
+}
+
+.tab.active {
+  color: #9333ea;
+  background-color: white;
+}
+.tab:hover {
+  color: #9333ea;
+  background-color: transparent;
+}
+.swiper-wrapper {
+  display: flex;
+  width: 300vw;
+  transition: transform 0.4s ease-in-out;
+}
+.swiper-slide {
+  width: 100vw;
+  height: calc(100vh - 50px); /* Adjust based on tab height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  background-color: transparent;
+  overflow: scroll;
+}
