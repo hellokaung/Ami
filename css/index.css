@@ -6,7 +6,7 @@ body {
 }
 /* width */
 ::-webkit-scrollbar {
-  width: 1px;
+  width: 0px;
 }
 
 /* Track */
@@ -54,7 +54,8 @@ body {
   transition: 500ms ease-in;
 }
 
-.tab.active {
+.tab.active,
+.tab:focus {
   color: #9333ea;
   background-color: white;
 }
@@ -62,9 +63,15 @@ body {
   color: #9333ea;
   background-color: transparent;
 }
+.swiper-viewpage {
+  max-width: 100%;
+  overflow: hidden;
+  margin-top: 20px;
+}
 .swiper-wrapper {
-  display: flex;
-  width: 300vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 300%;
   transition: transform 0.4s ease-in-out;
 }
 .swiper-slide {
