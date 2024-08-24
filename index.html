@@ -10,7 +10,7 @@
   </head>
   <body class="bg-purple-500">
     <!-- nav -->
-    <nav class="border-gray-200 h-auto backdrop-brightness-50">
+    <nav class="border-gray-200 h-auto backdrop-brightness-50 hidden md:block">
       <div
         class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
       >
@@ -69,8 +69,8 @@
     </nav>
 
     <!-- Tab -->
-    <div class="tab-container">
-      <div class="tabs rounded-full">
+    <div class="tab-container md:mt-10">
+      <div class="tabs rounded-full backdrop-blur-sm">
         <div class="tab active rounded-l-full" data-slide="0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +85,7 @@
           </svg>
           <span class="hidden md:block"> Progress </span>
         </div>
-        <div class="tab" data-slide="1">
+        <div class="tab md:hover:text-purple-500" data-slide="1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -99,7 +99,7 @@
           </svg>
           <span class="hidden md:block">Counter</span>
         </div>
-        <div class="tab rounded-r-full" data-slide="2">
+        <div class="tab rounded-r-full md:hover:text-purple-500" data-slide="2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -122,11 +122,13 @@
               class="w-full flex justify-center gap-10 md:gap-15 lg:gap-20 xl:gap-40"
             >
               <img
-                class="w-15 h-15 bg-gray rounded-full border-2 p-1"
+                class="w-15 h-15 bg-gray rounded-full border-2 p-1 border-blue-300 shadow-xl transition-all hover:shadow-sm shadow-blue-200"
                 src="./src/icon/boy.png"
                 alt=""
               />
-              <div class="flex flex-col items-center justify-center">
+              <div
+                class="flex flex-col items-center justify-center text-purple-200 transition-all hover:scale-110"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -138,24 +140,29 @@
                     d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"
                   />
                 </svg>
-                <span id="days-info" class="info">10 Days</span>
+                <span id="days-info" class="info font-bold">Days</span>
               </div>
               <img
-                class="w-15 h-15 bg-gray rounded-full border-2 p-1"
+                class="w-15 h-15 bg-gray rounded-full border-2 p-1 border-pink-300 shadow-xl transition-all hover:shadow-sm shadow-pink-200"
                 src="./src/icon/woman.png"
                 alt=""
               />
             </div>
             <!-- Year Progress Section -->
-            <div class="w-full mt-10 flex items-center justify-center">
+            <div
+              class="w-full mt-10 flex items-center justify-center transition-all hover:scale-90"
+            >
               <div
                 class="progress-container w-full flex items-center justify-center relative"
               >
-                <div id="label-left" class="w-auto text-center pr-5">
+                <div
+                  id="label-left"
+                  class="w-auto text-center pr-4 text-base text-purple-100 font-bold"
+                >
                   0 years
                 </div>
-                <div class="w-full pr-20">
-                  <div class="progress-bar">
+                <div class="w-full pr-16">
+                  <div class="progress-bar xl:w-full xl:h-12">
                     <div class="progress" id="progress"></div>
                     <div class="progress-text" id="progress-text">0%</div>
                   </div>
@@ -163,7 +170,7 @@
 
                 <div
                   id="label-right"
-                  class="text-center text-normal w-auto max-w-14 absolute right-1 xl:"
+                  class="text-center text-base w-auto max-w-12 absolute right-1 text-purple-100 font-bold"
                 >
                   1 year
                 </div>
@@ -177,7 +184,12 @@
     </div>
 
     <script src="./js/swiper-viewpager.js"></script>
+    <script src="./js/sticky-style.js"></script>
     <script src="./js/day-counter.js"></script>
     <script src="./js/flowbite.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+      ScrollReveal({ reset: true });
+    </script>
   </body>
 </html>

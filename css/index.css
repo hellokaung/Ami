@@ -29,7 +29,6 @@ body {
 }
 .tab-container {
   padding: 0 20px;
-  margin-top: 20px;
 }
 .tabs {
   display: flex;
@@ -61,10 +60,7 @@ body {
   color: #9333ea;
   background-color: white;
 }
-.tab:hover {
-  color: #9333ea;
-  background-color: transparent;
-}
+
 .swiper-viewpage {
   max-width: 100%;
   overflow: hidden;
@@ -94,20 +90,30 @@ body {
 /* //progress */
 .progress-bar {
   width: 100%;
-  max-width: 1000px;
-  background-color: #eee;
-  border-radius: 10px;
+  background-color: #e9d5ff;
+  border-radius: 20px;
   height: 30px;
   overflow: hidden;
   position: relative;
-  margin-bottom: 20px;
   border: 2px solid #ddd;
 }
 .progress {
-  background-color: #76c7c0;
+  background-color: #d8b4fe;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 20px;
   transition: width 0.5s ease;
+}
+.progress-bar .progress {
+  animation: bounce 2000ms infinite;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 .progress-text {
   text-align: center;
