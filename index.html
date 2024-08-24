@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ami</title>
+    <title>Ami - Days Counter</title>
     <link rel="shortcut icon" href="./src/icon/lover.png" type="image/x-icon" />
     <script src="./js/3.4.5"></script>
     <link rel="stylesheet" href="./css/index.css" />
@@ -17,7 +17,7 @@
         <a href="./" class="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="./src/icon/lover.png" class="h-8" alt="Ami" />
           <span class="self-center text-2xl font-semibold whitespace-nowrap"
-            >Ami</span
+            >Ami - Days Counter</span
           >
         </a>
         <button
@@ -138,7 +138,7 @@
                     d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"
                   />
                 </svg>
-                <span>10 Days</span>
+                <span id="days-info" class="info">10 Days</span>
               </div>
               <img
                 class="w-15 h-15 bg-gray rounded-full border-2 p-1"
@@ -146,43 +146,38 @@
                 alt=""
               />
             </div>
-          </div>
-          <div class="swiper-slide bg-red-100">
-            <div
-              class="w-full flex justify-center gap-10 md:gap-15 lg:gap-20 xl:gap-40"
-            >
-              <img
-                class="w-15 h-15 bg-gray rounded-full border-2 p-1"
-                src="./src/icon/boy.png"
-                alt=""
-              />
-              <div class="flex flex-col items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
+            <!-- Year Progress Section -->
+            <div class="w-full mt-10 flex items-center justify-center">
+              <div
+                class="progress-container w-full flex items-center justify-center relative"
+              >
+                <div id="label-left" class="w-auto text-center pr-5">
+                  0 years
+                </div>
+                <div class="w-full pr-20">
+                  <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                    <div class="progress-text" id="progress-text">0%</div>
+                  </div>
+                </div>
+
+                <div
+                  id="label-right"
+                  class="text-center text-normal w-auto max-w-14 absolute right-1 xl:"
                 >
-                  <path
-                    fill="currentColor"
-                    d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"
-                  />
-                </svg>
-                <span>10 Days</span>
+                  1 year
+                </div>
               </div>
-              <img
-                class="w-15 h-15 bg-gray rounded-full border-2 p-1"
-                src="./src/icon/woman.png"
-                alt=""
-              />
             </div>
           </div>
+          <div class="swiper-slide bg-red-100"></div>
           <div class="swiper-slide bg-white">Slide 3</div>
         </div>
       </div>
     </div>
 
     <script src="./js/swiper-viewpager.js"></script>
+    <script src="./js/day-counter.js"></script>
     <script src="./js/flowbite.min.js"></script>
   </body>
 </html>

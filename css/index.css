@@ -79,11 +79,38 @@ body {
 .swiper-slide {
   width: 100vw;
   padding-right: 40px;
-  height: calc(100vh - 50px); /* Adjust based on tab height */
+  /* height: calc(100vh - 50px); */
+  /* Adjust based on tab height */
+  min-height: 100vh;
   display: flex;
   align-items: baseline;
-  justify-content: center;
+  /* justify-content: center; */
   font-size: 24px;
   background-color: transparent;
   overflow: scroll;
+  flex-direction: column;
+}
+
+/* //progress */
+.progress-bar {
+  width: 100%;
+  max-width: 1000px;
+  background-color: #eee;
+  border-radius: 10px;
+  height: 30px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px;
+  border: 2px solid #ddd;
+}
+.progress {
+  background-color: #76c7c0;
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+.progress-text {
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
 }
