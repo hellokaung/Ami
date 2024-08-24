@@ -51,7 +51,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0px;
+  gap: 5px;
   transition: 500ms ease-in;
 }
 
@@ -77,7 +77,8 @@ body {
   padding-right: 40px;
   /* height: calc(100vh - 50px); */
   /* Adjust based on tab height */
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  max-height: 100vh;
   display: flex;
   align-items: baseline;
   /* justify-content: center; */
@@ -119,4 +120,39 @@ body {
   text-align: center;
   line-height: 30px;
   font-weight: bold;
+}
+
+.highlight {
+  background-color: #ff6b6b;
+}
+.special-today {
+  background-color: #ffeb3b;
+  color: black;
+  font-weight: bold;
+}
+
+.countdown {
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #76c7c0;
+  color: white;
+  border-radius: 5px;
+  font-size: 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.time {
+  display: flex;
+  justify-content: space-around;
+  font-size: 24px;
+  margin-top: 10px;
+}
+.time div {
+  margin: 0 10px;
+}
+.time span {
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 5px;
+  color: #555;
 }

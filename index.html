@@ -70,9 +70,10 @@
 
     <!-- Tab -->
     <div class="tab-container md:mt-10">
-      <div class="tabs rounded-full backdrop-blur-sm">
+      <div id="tab-layer" class="tabs rounded-full backdrop-blur-sm">
         <div class="tab active rounded-l-full" data-slide="0">
           <svg
+            class="w-6 h-6 md:w-10 md:h-10"
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="32"
@@ -87,6 +88,7 @@
         </div>
         <div class="tab md:hover:text-purple-500" data-slide="1">
           <svg
+            class="w-6 h-6 md:w-10 md:h-10"
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="32"
@@ -101,6 +103,7 @@
         </div>
         <div class="tab rounded-r-full md:hover:text-purple-500" data-slide="2">
           <svg
+            class="w-6 h-6 md:w-10 md:h-10"
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="32"
@@ -117,17 +120,17 @@
 
       <div class="swiper-viewpage">
         <div class="swiper-wrapper">
-          <div class="swiper-slide first pt-10">
+          <div id="viewpage-1" class="swiper-slide viewpage-1 first pt-10">
             <div
               class="w-full flex justify-center gap-10 md:gap-15 lg:gap-20 xl:gap-40"
             >
               <img
-                class="w-15 h-15 bg-gray rounded-full border-2 p-1 border-blue-300 shadow-xl transition-all hover:shadow-sm shadow-blue-200"
+                class="w-15 h-15 md:w-20 md:h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28 2xl:w-32 2xl:h-32 bg-gray rounded-full border-2 xl:border-4 p-1 border-blue-300 shadow-xl transition-all hover:shadow-sm shadow-blue-200"
                 src="./src/icon/boy.png"
                 alt=""
               />
               <div
-                class="flex flex-col items-center justify-center text-purple-200 transition-all hover:scale-110"
+                class="flex flex-col items-center justify-center text-purple-200 transition-all hover:scale-110 md:text-2xl lg:text-3xl xl:text-4xl"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +146,7 @@
                 <span id="days-info" class="info font-bold">Days</span>
               </div>
               <img
-                class="w-15 h-15 bg-gray rounded-full border-2 p-1 border-pink-300 shadow-xl transition-all hover:shadow-sm shadow-pink-200"
+                class="w-15 h-15 md:w-20 md:h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28 2xl:w-32 2xl:h-32 bg-gray rounded-full border-2 xl:border-4 p-1 border-pink-300 shadow-xl transition-all hover:shadow-sm shadow-pink-200"
                 src="./src/icon/woman.png"
                 alt=""
               />
@@ -157,12 +160,15 @@
               >
                 <div
                   id="label-left"
-                  class="w-auto text-center pr-4 text-base text-purple-100 font-bold"
+                  class="w-auto text-center pr-4 lg:pr-6 xl:pr-8 text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl text-purple-100 font-bold"
                 >
                   0 years
                 </div>
-                <div class="w-full pr-16">
-                  <div class="progress-bar xl:w-full xl:h-12">
+                <div class="w-full pr-16 lg:pr-20 xl:pr-24 2xl:pr-28">
+                  <div
+                    id="progress-bar"
+                    class="progress-bar md:h-10 lg:h-12 xl:h-14 2xl:h-16"
+                  >
                     <div class="progress" id="progress"></div>
                     <div class="progress-text" id="progress-text">0%</div>
                   </div>
@@ -170,26 +176,70 @@
 
                 <div
                   id="label-right"
-                  class="text-center text-base w-auto max-w-12 absolute right-1 text-purple-100 font-bold"
+                  class="text-center text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl w-auto max-w-12 xl:max-w-16 2xl:max-w-20 absolute right-1 text-purple-100 font-bold"
                 >
                   1 year
                 </div>
               </div>
             </div>
+            <div class="w-full flex items-center justify-center">
+              <div
+                class="flex flex-col items-center justify-center mt-10 bg-purple-400 rounded-lg shadow-md shadow-purple-500 p-5"
+              >
+                <h1 class="font-bold" id="anniversary-status">
+                  Anniversary Status
+                </h1>
+                <div class="w-full h-0.5 bg-purple-500"></div>
+                <div
+                  id="anniversary-info"
+                  class="text-lg text-center mt-3"
+                ></div>
+              </div>
+            </div>
           </div>
-          <div class="swiper-slide bg-red-100"></div>
-          <div class="swiper-slide bg-white">Slide 3</div>
+
+          <div class="swiper-slide">
+            <!-- Time Difference Section -->
+            <div class="container">
+              <div class="time" id="time-difference">
+                <div class="grid grid-cols-3">
+                  <div class="flex flex-col items-center justify-center">
+                    <span id="years"></span> Years
+                  </div>
+                  <div class="flex flex-col items-center justify-center">
+                    <span id="months"></span> Months
+                  </div>
+                  <div class="flex flex-col items-center justify-center">
+                    <span id="days"></span> Days
+                  </div>
+
+                  <div class="flex flex-col items-center justify-center">
+                    <span id="hours"></span> Hours
+                  </div>
+                  <div class="flex flex-col items-center justify-center">
+                    <span id="minutes"></span> Minutes
+                  </div>
+                  <div class="flex flex-col items-center justify-center">
+                    <span id="seconds"></span> Seconds
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <!-- Upcoming Anniversaries Section -->
+            <div>
+              <h1>Upcoming Anniversaries</h1>
+              <ul class="anniversary-list" id="anniversary-list"></ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <script src="./js/swiper-viewpager.js"></script>
-    <script src="./js/sticky-style.js"></script>
+    <!-- <script src="./js/sticky-style.js"></script> -->
     <script src="./js/day-counter.js"></script>
     <script src="./js/flowbite.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script>
-      ScrollReveal({ reset: true });
-    </script>
   </body>
 </html>
