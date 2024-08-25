@@ -7,6 +7,15 @@
     <link rel="shortcut icon" href="./src/icon/lover.png" type="image/x-icon" />
     <script src="./js/3.4.5"></script>
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Righteous&family=Signika+Negative:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="bg-purple-500">
     <!-- nav -->
@@ -182,9 +191,10 @@
                 </div>
               </div>
             </div>
+            <!-- Anniversary Status -->
             <div class="w-full flex items-center justify-center">
               <div
-                class="flex flex-col items-center justify-center mt-10 bg-purple-400 rounded-lg shadow-md shadow-purple-500 p-5"
+                class="flex flex-col items-center justify-center mt-10 bg-purple-400 rounded-lg shadow-lg shadow-purple-500 p-5"
               >
                 <h1 class="font-bold" id="anniversary-status">
                   Anniversary Status
@@ -196,40 +206,327 @@
                 ></div>
               </div>
             </div>
-          </div>
-
-          <div class="swiper-slide">
             <!-- Time Difference Section -->
             <div class="container">
-              <div class="time" id="time-difference">
+              <div class="time flex flex-col" id="time-difference">
                 <div class="grid grid-cols-3">
-                  <div class="flex flex-col items-center justify-center">
-                    <span id="years"></span> Years
+                  <div
+                    class="flex flex-col items-center justify-center relative"
+                  >
+                    <svg
+                      class="absolute top-0 text-purple-600 w-20 h-20 drop-shadow-md"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"
+                      />
+                    </svg>
+                    <span
+                      id="diff-years"
+                      class="z-50 text-purple-200 w-12 h-12 text-center mt-6 text-lg font-extrabold"
+                    ></span>
+                    <span
+                      class="fontstyle-dancingscript text-2xl text-black-100"
+                      >Years</span
+                    >
                   </div>
-                  <div class="flex flex-col items-center justify-center">
-                    <span id="months"></span> Months
+                  <div
+                    class="flex flex-col items-center justify-center relative"
+                  >
+                    <svg
+                      class="absolute top-0 text-purple-600 w-20 h-20 drop-shadow-md"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"
+                      />
+                    </svg>
+                    <span
+                      id="diff-months"
+                      class="z-50 text-purple-200 w-12 h-12 text-center mt-6 text-lg font-extrabold"
+                    ></span>
+                    <span
+                      class="fontstyle-dancingscript text-2xl text-black-100"
+                      >Months</span
+                    >
                   </div>
-                  <div class="flex flex-col items-center justify-center">
-                    <span id="days"></span> Days
+                  <div
+                    class="flex flex-col items-center justify-center relative"
+                  >
+                    <svg
+                      class="absolute top-0 text-purple-600 w-20 h-20 drop-shadow-md"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"
+                      />
+                    </svg>
+                    <span
+                      id="diff-days"
+                      class="z-50 text-purple-200 w-12 h-12 text-center mt-6 text-lg font-extrabold"
+                    ></span>
+                    <span
+                      class="fontstyle-dancingscript text-2xl text-black-100"
+                      >Days</span
+                    >
                   </div>
+                </div>
 
-                  <div class="flex flex-col items-center justify-center">
-                    <span id="hours"></span> Hours
+                <div class="w- full flex items-end justify-center">
+                  <div
+                    class="flex flex-col items-center justify-center relative"
+                  >
+                    <svg
+                      class="absolute top-0 text-purple-600 w-20 h-20 drop-shadow-md"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"
+                      />
+                    </svg>
+                    <span
+                      id="diff-hours"
+                      class="z-50 text-purple-200 w-12 h-12 text-center mt-6 text-lg font-extrabold"
+                    ></span>
+                    <span
+                      class="fontstyle-dancingscript text-2xl text-black-100"
+                      >Hours</span
+                    >
                   </div>
-                  <div class="flex flex-col items-center justify-center">
-                    <span id="minutes"></span> Minutes
+                  <div
+                    class="flex flex-col items-center justify-center relative"
+                  >
+                    <svg
+                      class="absolute top-0 text-purple-600 w-20 h-20 drop-shadow-md"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"
+                      />
+                    </svg>
+                    <span
+                      id="diff-minutes"
+                      class="z-50 text-purple-200 w-12 h-12 text-center mt-6 text-lg font-extrabold"
+                    ></span>
+                    <span
+                      class="fontstyle-dancingscript text-2xl text-black-100"
+                      >Minutes</span
+                    >
                   </div>
-                  <div class="flex flex-col items-center justify-center">
-                    <span id="seconds"></span> Seconds
+                  <div
+                    class="flex flex-col items-center justify-center relative"
+                  >
+                    <svg
+                      class="absolute top-0 text-purple-600 w-20 h-20 drop-shadow-md"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"
+                      />
+                    </svg>
+                    <span
+                      id="diff-seconds"
+                      class="z-50 text-purple-200 w-12 h-12 text-center mt-6 text-lg font-extrabold"
+                    ></span>
+                    <span
+                      class="fontstyle-dancingscript text-2xl text-black-100"
+                      >Seconds</span
+                    >
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
+          <div class="swiper-slide">
+            <!-- Time Difference Section -->
+            <div class="container">
+              <div class="time flex flex-col" id="time-difference">
+                <div class="grid grid-cols-3">
+                  <div
+                    class="flex flex-col items-center justify-center relative"
+                  >
+                    <svg
+                      class="absolute top-0 text-purple-600 w-20 h-20 drop-shadow-md"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"
+                      />
+                    </svg>
+                    <span
+                      id="years"
+                      class="z-50 text-purple-200 w-12 h-12 text-center mt-6 text-lg font-extrabold"
+                    ></span>
+                    <span
+                      class="fontstyle-dancingscript text-2xl text-black-100"
+                      >Years</span
+                    >
+                  </div>
+                  <div
+                    class="flex flex-col items-center justify-center relative"
+                  >
+                    <svg
+                      class="absolute top-0 text-purple-600 w-20 h-20 drop-shadow-md"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"
+                      />
+                    </svg>
+                    <span
+                      id="months"
+                      class="z-50 text-purple-200 w-12 h-12 text-center mt-6 text-lg font-extrabold"
+                    ></span>
+                    <span
+                      class="fontstyle-dancingscript text-2xl text-black-100"
+                      >Months</span
+                    >
+                  </div>
+                  <div
+                    class="flex flex-col items-center justify-center relative"
+                  >
+                    <svg
+                      class="absolute top-0 text-purple-600 w-20 h-20 drop-shadow-md"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"
+                      />
+                    </svg>
+                    <span
+                      id="days"
+                      class="z-50 text-purple-200 w-12 h-12 text-center mt-6 text-lg font-extrabold"
+                    ></span>
+                    <span
+                      class="fontstyle-dancingscript text-2xl text-black-100"
+                      >Days</span
+                    >
+                  </div>
+                </div>
+
+                <div class="w- full flex items-end justify-center">
+                  <div
+                    class="flex flex-col items-center justify-center relative"
+                  >
+                    <svg
+                      class="absolute top-0 text-purple-600 w-20 h-20 drop-shadow-md"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"
+                      />
+                    </svg>
+                    <span
+                      id="hours"
+                      class="z-50 text-purple-200 w-12 h-12 text-center mt-6 text-lg font-extrabold"
+                    ></span>
+                    <span
+                      class="fontstyle-dancingscript text-2xl text-black-100"
+                      >Hours</span
+                    >
+                  </div>
+                  <div
+                    class="flex flex-col items-center justify-center relative"
+                  >
+                    <svg
+                      class="absolute top-0 text-purple-600 w-20 h-20 drop-shadow-md"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"
+                      />
+                    </svg>
+                    <span
+                      id="minutes"
+                      class="z-50 text-purple-200 w-12 h-12 text-center mt-6 text-lg font-extrabold"
+                    ></span>
+                    <span
+                      class="fontstyle-dancingscript text-2xl text-black-100"
+                      >Minutes</span
+                    >
+                  </div>
+                  <div
+                    class="flex flex-col items-center justify-center relative"
+                  >
+                    <svg
+                      class="absolute top-0 text-purple-600 w-20 h-20 drop-shadow-md"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"
+                      />
+                    </svg>
+                    <span
+                      id="seconds"
+                      class="z-50 text-purple-200 w-12 h-12 text-center mt-6 text-lg font-extrabold"
+                    ></span>
+                    <span
+                      class="fontstyle-dancingscript text-2xl text-black-100"
+                      >Seconds</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="w-full flex items-center justify-center mt-5">
+                <span
+                  class="fontstyle-righteous text-2xl text-purple-200"
+                  id="start-date"
+                ></span>
+              </div>
+            </div>
+          </div>
           <div class="swiper-slide">
             <!-- Upcoming Anniversaries Section -->
-            <div>
-              <h1>Upcoming Anniversaries</h1>
+            <div class="w-full">
               <ul class="anniversary-list" id="anniversary-list"></ul>
             </div>
           </div>

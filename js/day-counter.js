@@ -99,6 +99,13 @@ function calculateTimeDifference(startDate) {
     hours += 24;
   }
 
+  document.getElementById("diff-years").textContent = years;
+  document.getElementById("diff-months").textContent = months;
+  document.getElementById("diff-days").textContent = days;
+  document.getElementById("diff-hours").textContent = hours;
+  document.getElementById("diff-minutes").textContent = minutes;
+  document.getElementById("diff-seconds").textContent = seconds;
+
   document.getElementById("years").textContent = years;
   document.getElementById("months").textContent = months;
   document.getElementById("days").textContent = days;
@@ -108,6 +115,9 @@ function calculateTimeDifference(startDate) {
 }
 
 function startCountdown() {
+  document.getElementById(
+    "start-date"
+  ).innerHTML = `${startDate.toDateString()}`;
   calculateTimeDifference(startDate);
   setInterval(() => calculateTimeDifference(startDate), 1000);
 }
@@ -243,7 +253,7 @@ function checkAnniversary(startDate) {
       "Congratulation";
     document
       .getElementById("progress-bar")
-      .classList.add("bg-purple-600", "shadow-inner", "shadow-lime-700");
+      .classList.add("bg-purple-600", "shadow-inner", "shadow-purple-700");
     document.getElementById("progress").classList.add("bg-purple-600");
 
     document.getElementById("anniversary-info").innerHTML =
