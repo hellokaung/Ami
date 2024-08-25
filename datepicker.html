@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date and Time Picker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 flex justify-center items-center h-screen">
+    <div
+      id="date-picker"
+      class="bg-white p-8 rounded shadow-md w-full max-w-md"
+    >
+      <h2 class="text-2xl font-semibold mb-6 text-center">
+        Date and Time Picker
+      </h2>
+
+      <!-- Date Picker -->
+      <div class="mb-4">
+        <label for="datePicker" class="block text-gray-700 font-semibold mb-2"
+          >Select Date:</label
+        >
+        <input
+          type="date"
+          id="datePicker"
+          class="w-full p-3 border rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
+        />
+      </div>
+
+      <!-- Time Picker -->
+      <div class="mb-4">
+        <label for="timePicker" class="block text-gray-700 font-semibold mb-2"
+          >Select Time:</label
+        >
+        <input
+          type="time"
+          id="timePicker"
+          class="w-full p-3 border rounded-md focus:outline-none focus:ring focus:ring-indigo-500"
+          value="00:00:00"
+        />
+      </div>
+
+      <!-- Save Button -->
+      <button
+        id="saveBtn"
+        class="w-full bg-indigo-500 text-white py-3 rounded-md hover:bg-indigo-600 transition-colors"
+      >
+        Save
+      </button>
+
+      <!-- Result Display -->
+      <div id="result" class="mt-6 text-center text-gray-700"></div>
+    </div>
+
+    <script>
+      // JavaScript code for saving date and time
+      document.getElementById("saveBtn").addEventListener("click", function () {
+        const date = document.getElementById("datePicker").value;
+        const time = document.getElementById("timePicker").value || "00:00:00"; // Default time
+
+        if (date) {
+          const dateTime = `${date}T${time}`;
+          localStorage.setItem("savedDateTime", dateTime);
+          location.reload();
+          // Display the result
+          document.getElementById(
+            "result"
+          ).textContent = `Saved Date and Time: ${dateTime}`;
+        } else {
+          document.getElementById("result").textContent =
+            "Please select a date.";
+        }
+      });
+    </script>
+  </body>
+</html>

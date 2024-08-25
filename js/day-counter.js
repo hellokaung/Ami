@@ -1,5 +1,51 @@
-const startDate = new Date("2022-11-27T00:00:00"); // Set the common start date
+// Define an array of objects mapping keys to dates
+const keyDateMappings = [
+  { key: "#loveYouAmi", date: "2022-11-27T00:00:00" },
+  { key: "#key?anothercode", date: "2023-01-01T00:00:00" },
+  // Add more key-date pairs as needed
+];
 
+// Function to get the current date in the format "YYYY-MM-DDTHH:MM:SS"
+function getCurrentDate() {
+  const date = new Date();
+  return date.toISOString().slice(0, 19); // Formats to "YYYY-MM-DDTHH:MM:SS"
+}
+
+// Initialize storedDate variable
+let storedDate = null;
+
+// Step 1: Check if URL hash matches any key in the keyDateMappings array
+const currentHash = window.location.hash;
+const matchingEntry = keyDateMappings.find(
+  (entry) => entry.key === currentHash
+);
+
+if (matchingEntry) {
+  storedDate = matchingEntry.date; // Use the predefined date
+  localStorage.setItem("savedDate", storedDate); // Save to localStorage
+} else {
+  // Step 2: Check if URL contains "#date=YYYY-MM-DDTHH:MM:SS"
+  const dateMatch = currentHash.match(/#date=([\d-]+T[\d:]+)/);
+
+  if (dateMatch && dateMatch[1]) {
+    storedDate = dateMatch[1]; // Extracted date from URL
+    localStorage.setItem("savedDate", storedDate); // Save to localStorage
+  } else {
+    // Step 3: Check if a date is stored in localStorage
+    storedDate = localStorage.getItem("savedDate");
+
+    if (!storedDate) {
+      // Step 4: If no stored date, use the current date
+      storedDate = getCurrentDate();
+      localStorage.setItem("savedDate", storedDate); // Save current date to localStorage
+    }
+  }
+}
+const startDate = new Date(storedDate);
+const [datePart, timePart] = storedDate.split("T");
+
+document.getElementById("current-date").textContent = storedDate;
+document.getElementById("datePicker").value = datePart;
 // Year Progress Section
 function updateProgressBar(startDate) {
   const now = new Date();
@@ -166,16 +212,28 @@ function displayAnniversaries(anniversaries) {
   const list = document.getElementById("anniversary-list");
 
   anniversaries.forEach((anniversary) => {
-    const listItem = document.createElement("li");
+    const listItem = document.createElement("div");
     listItem.classList.add(
       "text-base",
-      "shadow-lg",
+      "shadow-sm",
       "mb-5",
       "rounded-lg",
       "p-3",
       "shadow-purple-400",
       "bg-purple-400",
-      "hover:shadow-md"
+      "hover:shadow-lg",
+      "md:text-lg",
+      "lg:text-xl",
+      "xl:text-2xl",
+      "2xl:text-3xl",
+      "md:min-h-20",
+      "md:rounded-xl",
+      "text-center",
+      "lg:rounded-full",
+      "flex",
+      "flex-col",
+      "items-center",
+      "justify-center"
     );
 
     let displayText = `In ${anniversary.daysUntil} days: ${
@@ -206,7 +264,8 @@ function displayAnniversaries(anniversaries) {
       listItem.classList.add("text-white");
       listItem.classList.add("font-bold");
       displayText = displayText.replace("and 0 months", "");
-      displayText += " 🎉 Special Yearly Anniversary!";
+      displayText +=
+        '</br> <p class="font-extrabold scale-110 md:mt-1 lg:mt-2 text-amber-50"> 🎉 Special Yearly Anniversary!</p>';
     }
 
     // Highlight today's anniversary
@@ -219,7 +278,7 @@ function displayAnniversaries(anniversaries) {
       displayText = `🎉 Today is the ${anniversary.year} years and ${anniversary.month} months anniversary! 🎉`;
     }
 
-    listItem.textContent = displayText;
+    listItem.innerHTML = displayText;
     list.appendChild(listItem);
   });
 }
@@ -236,12 +295,14 @@ function checkAnniversary(startDate) {
   const now = new Date();
   const anniversaryThisYear = new Date(startDate);
   anniversaryThisYear.setFullYear(now.getFullYear());
+  const yearsPassed = now.getFullYear() - startDate.getFullYear();
+  const monthsPassed = now.getMonth() - startDate.getMonth();
+  const daysPassed = now.getDate() - startDate.getDate();
 
-  if (anniversaryThisYear.toDateString() === now.toDateString()) {
-    const yearsPassed = now.getFullYear() - startDate.getFullYear();
-    const monthsPassed = now.getMonth() - startDate.getMonth();
-    const daysPassed = now.getDate() - startDate.getDate();
-
+  if (
+    anniversaryThisYear.toDateString() === now.toDateString() &&
+    yearsPassed > 0
+  ) {
     let totalMonths = yearsPassed * 12 + monthsPassed;
     if (daysPassed < 0) {
       totalMonths -= 1;
@@ -251,9 +312,13 @@ function checkAnniversary(startDate) {
     }
     document.getElementById("anniversary-status").textContent =
       "Congratulation";
-    document
-      .getElementById("progress-bar")
-      .classList.add("bg-purple-600", "shadow-inner", "shadow-purple-700");
+    document.getElementById("progress-bar").classList.add(
+      "bg-purple-600",
+      "border-none",
+
+      "shadow-sm",
+      "shadow-purple-700"
+    );
     document.getElementById("progress").classList.add("bg-purple-600");
 
     document.getElementById("anniversary-info").innerHTML =
@@ -287,7 +352,7 @@ function checkAnniversary(startDate) {
       countdownElem.innerHTML =
         `The next anniversary is in ${days} days: ${hours} hours: ${minutes} minutes: ${seconds} seconds`
           .replace("1 days", "1 day")
-          .replace("0 days:", "");
+          .replace("in 0 days:", "in");
     }, 1000);
   }
 }
